@@ -9,7 +9,7 @@ from PyQt5.QtCore import QCoreApplication
 
 from Src.mainwindow import Ui_MainWindow
 from Xray.dll import dllForPython
-sys.path.append("C:\\Users\\xie\\Desktop\\newCT\\Xray\\dll.py")
+sys.path.append("..\\Xray\\dll.py")
 
 
 class GUI(QMainWindow):
