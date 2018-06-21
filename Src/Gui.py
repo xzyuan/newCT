@@ -40,6 +40,9 @@ class GUI(QMainWindow):
         self.ui.btn_XrayExpose.clicked.connect(self.xrayExpose)
         self.ui.btn_XrayStop.clicked.connect(self.xrayStop)
 
+        #Sample
+        self.ui.btn_SampleOff.clicked.connect(self.sendSampleParameters)
+
         #quit
         self.ui.btn_Quit.clicked.connect(QCoreApplication.instance().quit)
 
@@ -92,6 +95,8 @@ class GUI(QMainWindow):
             self.ui.lineEdit_PassWord.clear()
             self.ui.lineEdit_UserName.clear()
             log = user + "login\n"
+
+
             self.writeLog(log)
         else:
             self.tabDisplay(False)
@@ -240,6 +245,59 @@ class GUI(QMainWindow):
         global refresh
         refresh = Timer(1, self.refreshStatus)
         refresh.start()
+
+    # 读取升降/旋转电机设定参数
+    def getSampleParameters(self):
+        Sample_parameters = {
+            "命令功能": 0,  #0代表控制指令，1代表请求升降电机状态，2代表请求旋转电机状态
+            "选择电机": 0,  #0代表升降电机，1代表旋转电机
+            "电机动作": 0,    #0代表停止，1代表启动
+            "电机使能": 0,  #0代表使能ON，1代表使能OFF
+            "运行模式": 0,  #0代表回原点，1代表点动模式，2代表定位运动
+            "运动方向": 0,  #0代表正向，1代表反向
+            "目标位置": 0,  #升降电机1代表0.01mm，范围0~20000，旋转电机1代表0.01°，设定范围0~35999
+            "目标速度": 0   #升降电机1代表0.01mm/s，范围10~400，旋转电机1代表0.01r/min,范围100~3000
+        }
+        Sample_parameters["选择电机"] = self.ui.comboBox_SampleSelect.currentIndex()
+        Sample_parameters["运动方向"] = self.ui.comboBox_SampleDirection.currentIndex()
+        Sample_parameters["运行模式"] = self.ui.comboBox_SampleMode.currentIndex()+1
+        Sample_parameters["目标位置"] = self.ui.lineEdit_SampleDestPosition.text()
+        Sample_parameters["目标速度"] = self.ui.lineEdit_SampleSpeed.text()
+        return Sample_parameters
+
+    def getSampleSendParameter(self):
+        Sample_parameter = self.getSampleParameters()
+        para = bytes("{},{},{},{},{},{},{},{}".format(Sample_parameter["命令功能"],
+                                                   Sample_parameter["选择电机"],
+                                                   Sample_parameter["电机动作"],
+                                                   Sample_parameter["电机使能"],
+                                                   Sample_parameter["运行模式"],
+                                                   Sample_parameter["运动方向"],
+                                                   Sample_parameter["目标位置"],
+                                                   Sample_parameter["目标速度"]), encoding="utf-8")
+        return para
+
+    # SampleControl
+    def sendSampleParameters(self):
+        Sample_parameter = self.getSampleSendParameter()
+        address = ('192.168.125.118', 12225)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            s.connect(address)
+            s.send(Sample_parameter)
+            data = s.recv(1024)
+            print(bytes.decode(data))
+            QMessageBox.information(self, "Tips", "关闭成功")
+            s.close()
+        except Exception:
+            s.close()
+            QMessageBox.information(self, "Tips", "无法连接到样品台控制器")
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

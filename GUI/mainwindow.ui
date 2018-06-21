@@ -30,7 +30,7 @@
      <string/>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -49,7 +49,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../SB/Desktop/原理样机图.png</pixmap>
+       <pixmap>原理样机图.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -102,7 +102,7 @@
        <item>
         <widget class="QLineEdit" name="lineEdit_PassWord">
          <property name="text">
-          <string>sssssss</string>
+          <string>nsrl</string>
          </property>
          <property name="echoMode">
           <enum>QLineEdit::PasswordEchoOnEdit</enum>
@@ -149,7 +149,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -160,7 +160,7 @@
       <widget class="QWidget" name="tab_9">
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../SB/Desktop/CT界面/tab_扫描控制.bmp</normaloff>../../../SB/Desktop/CT界面/tab_扫描控制.bmp</iconset>
+         <normaloff>tab_扫描控制.bmp</normaloff>tab_扫描控制.bmp</iconset>
        </attribute>
        <attribute name="title">
         <string/>
@@ -281,7 +281,7 @@
       <widget class="QWidget" name="tab_10">
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../SB/Desktop/CT界面/tab_传感器校正.bmp</normaloff>../../../SB/Desktop/CT界面/tab_传感器校正.bmp</iconset>
+         <normaloff>tab_传感器校正.bmp</normaloff>tab_传感器校正.bmp</iconset>
        </attribute>
        <attribute name="title">
         <string/>
@@ -492,7 +492,7 @@
       <widget class="QWidget" name="tab_8">
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../SB/Desktop/CT界面/未标题-1.png</normaloff>../../../SB/Desktop/CT界面/未标题-1.png</iconset>
+         <normaloff>未标题-1.png</normaloff>未标题-1.png</iconset>
        </attribute>
        <attribute name="title">
         <string/>
@@ -742,34 +742,11 @@
       <widget class="QWidget" name="tab_11">
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../SB/Desktop/CT界面/tab_时序控制器.bmp</normaloff>../../../SB/Desktop/CT界面/tab_时序控制器.bmp</iconset>
+         <normaloff>样品台控制器.bmp</normaloff>样品台控制器.bmp</iconset>
        </attribute>
        <attribute name="title">
         <string/>
        </attribute>
-       <widget class="QComboBox" name="comboBox">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>60</y>
-          <width>191</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>升降电机</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>旋转电机</string>
-         </property>
-        </item>
-       </widget>
        <widget class="Line" name="line">
         <property name="geometry">
          <rect>
@@ -783,134 +760,282 @@
          <enum>Qt::Vertical</enum>
         </property>
        </widget>
-       <widget class="QLabel" name="label_20">
+       <widget class="QGroupBox" name="groupBox_6">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>54</width>
-          <height>20</height>
+          <x>330</x>
+          <y>140</y>
+          <width>451</width>
+          <height>171</height>
          </rect>
         </property>
-        <property name="text">
+        <property name="title">
+         <string>执行操作</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <widget class="QPushButton" name="btn_SampleOff">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>110</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>关闭电机</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_SampleStop">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>110</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>停止运动</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_SampleOriginStart">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>50</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>回原点启动</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_SampleOn">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>50</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>打开电机</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_SampleDirectionStart">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>50</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>正反转启动</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>50</y>
+          <width>251</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>选择参数</string>
+        </property>
+        <widget class="QLabel" name="label_32">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>20</y>
+           <width>54</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>运行模式</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_31">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>200</y>
+           <width>31</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>mm/s</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_33">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>130</y>
+           <width>54</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>目标位置</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_30">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>180</y>
+           <width>54</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>运动速度</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="comboBox_SampleMode">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>40</y>
+           <width>191</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>点动模式</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>定位运动模式</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="comboBox_SampleDirection">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>90</y>
+           <width>191</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>正向</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>反向</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="label_35">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>70</y>
+           <width>54</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>运动方向</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_SampleDestPosition">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>150</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_SampleSpeed">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>200</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_34">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>150</y>
+           <width>21</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_8">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>50</y>
+          <width>211</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
          <string>选择电机</string>
         </property>
-       </widget>
-       <widget class="QLabel" name="label_30">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>210</y>
-          <width>54</width>
-          <height>12</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>运动速度</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>230</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_31">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>230</y>
-          <width>31</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>mm/s</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_32">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>100</y>
-          <width>54</width>
-          <height>12</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>运行模式</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="comboBox_2">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>120</y>
-          <width>191</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>回原点模式</string>
+        <widget class="QComboBox" name="comboBox_SampleSelect">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>30</y>
+           <width>91</width>
+           <height>21</height>
+          </rect>
          </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>点动模式</string>
+         <property name="editable">
+          <bool>false</bool>
          </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>定位运动模式</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QLabel" name="label_33">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>160</y>
-          <width>54</width>
-          <height>12</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>目标位置</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>180</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_34">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>180</y>
-          <width>21</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>mm</string>
-        </property>
+         <item>
+          <property name="text">
+           <string>升降电机</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>旋转电机</string>
+          </property>
+         </item>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_12">
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../SB/Desktop/CT界面/tab_高压控制器.bmp</normaloff>../../../SB/Desktop/CT界面/tab_高压控制器.bmp</iconset>
+         <normaloff>tab_高压控制器.bmp</normaloff>tab_高压控制器.bmp</iconset>
        </attribute>
        <attribute name="title">
         <string/>
