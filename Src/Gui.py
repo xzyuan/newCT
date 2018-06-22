@@ -4,11 +4,10 @@ import math
 import json
 import socket
 from threading import Thread, Timer
-from PyQt5 import QtGui
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QCoreApplication
 
+from Src.Sample import *
 from Src.mainwindow import Ui_MainWindow
 from Xray.dll import dllForPython
 sys.path.append("..\\Xray\\dll.py")
@@ -60,7 +59,6 @@ class GUI(QMainWindow):
     def GuiInit(self):
         self.tabDisplay(False)
         self.ui.lineEdit_PassWord.setEchoMode(QLineEdit.Password)
-
         print(self.Xray.test())
         global refresh
         refresh = Timer(1, self.refreshStatus)
