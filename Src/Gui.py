@@ -4,6 +4,8 @@ import math
 import json
 import socket
 from threading import Thread, Timer
+from PyQt5 import QtGui
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QCoreApplication
 
@@ -42,9 +44,18 @@ class GUI(QMainWindow):
 
         #Sample
         self.ui.btn_SampleOff.clicked.connect(self.sendSampleParameters)
+        self.ui.btn_SampleOn.clicked.connect(self.setSampleUpdownOn)
 
         #quit
         self.ui.btn_Quit.clicked.connect(QCoreApplication.instance().quit)
+
+        # palette1 = QtGui.QPalette()
+        # palette1.setColor(self.backgroundRole(), QColor(200,200,200))
+        # # palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap('../../../Document/images/17_big.jpg')))   # 设置背景图片
+        # self.setPalette(palette1)
+        # p = self.ui.tabWidget.palette()
+        # p.setColor(self.backgroundRole(),QColor(200,200,70))
+        # self.ui.tabWidget.setPalette(p)
 
     def GuiInit(self):
         self.tabDisplay(False)
@@ -294,10 +305,19 @@ class GUI(QMainWindow):
             QMessageBox.information(self, "Tips", "无法连接到样品台控制器")
 
 
-
-
-
-
+    def setSampleUpdownOn(self):
+        address = ('192.168.125.118', 12225)
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        try:
+            s.connect(address)
+            s.send(bytes(0x02))
+            data = s.recv(1024)
+            print(bytes.decode(data))
+            QMessageBox.information(self, "Tips", "开启成功")
+            s.close()
+        except Exception:
+            s.close()
+            QMessageBox.information(self, "Tips", "无法连接到样品台控制器")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
