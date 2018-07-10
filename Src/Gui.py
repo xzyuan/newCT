@@ -42,7 +42,6 @@ class GUI(QMainWindow):
         self.ui.btn_XrayStop.clicked.connect(self.xrayStop)
 
         #Sample
-        self.ui.btn_SampleOff.clicked.connect(self.sendSampleParameters)
         self.ui.btn_SampleOn.clicked.connect(self.setSampleUpdownOn)
 
         #quit
